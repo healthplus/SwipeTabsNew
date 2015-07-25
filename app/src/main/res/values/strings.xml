@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Swipe Tabs</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="intro_message">This is the intro message</string>
+</resources>
