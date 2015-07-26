@@ -4,11 +4,19 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by praga on 7/25/2015.
@@ -71,6 +79,10 @@ public class SlidingTabsBasicFragment extends Fragment {
      */
     class SamplePagerAdapter extends PagerAdapter {
 
+
+
+
+
         /**
          * @return the number of pages to display
          */
@@ -109,23 +121,25 @@ public class SlidingTabsBasicFragment extends Fragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 
-            View view = getActivity().getLayoutInflater().inflate(R.layout.grid_layout,
-                    container, false);
+            /*View view = getActivity().getLayoutInflater().inflate(R.layout.grid_layout,
+                    container, false);*/
 
             // Inflate a new layout from our resources
-            /*View view = getActivity().getLayoutInflater().inflate(R.layout.pager_item,
-                    container, false);*/
+            View view = getActivity().getLayoutInflater().inflate(R.layout.pager_item,
+                    container, false);
             // Add the newly created View to the ViewPager
             container.addView(view);
 
             // Retrieve a TextView from the inflated View, and update it's text
-            /*TextView title = (TextView) view.findViewById(R.id.item_title);
-            title.setText(String.valueOf(position + 1));*/
+            TextView title = (TextView) view.findViewById(R.id.item_title);
 
-            GridView gridView = (GridView) view.findViewById(R.id.grid_view);
+            title.setText(MainActivity.doctors[position]);
+            //title.setText(String.valueOf(position + 1));
+
+            //GridView gridView = (GridView) view.findViewById(R.id.grid_view);
 
             // Instance of ImageAdapter Class
-            gridView.setAdapter(new ImageAdapter(getActivity()));
+            //gridView.setAdapter(new ImageAdapter(getActivity()));
             // Return the View
             return view;
         }
